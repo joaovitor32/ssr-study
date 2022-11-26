@@ -1,5 +1,5 @@
 import { Page, Browser } from 'puppeteer'
-import { launchPage, startPage, renderHtmlExternalURL } from './'
+import { launchPage, renderHtmlExternalURL } from './'
 
 let page
 const timeout = 30000
