@@ -17,6 +17,7 @@ import Error from '../../error'
 const validateHTML = ({ html }: ValidateHTMLProps) => {
     const dom = new JSDOM(html)
     const errorNode = dom.window.document.querySelector('parsererror')
+
     if (errorNode) {
         throw new Error('Invalid html file', 500)
     }
@@ -53,4 +54,4 @@ const parseHtml = async ({ page, html }: ParseHTMLProps<Page>) => {
     await removeExecutedScripts({ page })
 }
 
-export { validateHTML, renderHtmlFromFile, renderizeHtml, parseHtml }
+export { validateHTML, renderHtmlFromFile, renderizeHtml, parseHtml, removeExecutedScripts }
