@@ -7,7 +7,7 @@ const validHtml =
     '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head><body><h1>Hello World</h1></body></html>'
 
 describe('Validate HTML tests ', () => {
-    it('Check if html is valid, --success case', () => {
+    it('Should check if html is valid, --success case', () => {
         expect(validateHTML({ html: validHtml })).toBe(undefined)
     })
 })
@@ -18,7 +18,7 @@ describe('RemoveExecutedScripts tests ', () => {
         await page.goto('https://google.com')
     }, timeout)
 
-    it('Check if script is removed, --success case', async () => {
+    it('Should check if script is removed, --success case', async () => {
         removeExecutedScripts({ page })
         const response = await page.content()
 
@@ -32,7 +32,7 @@ describe('RenderizeHtml tests ', () => {
         page = await globalThis.__BROWSER_GLOBAL__.newPage()
         await page.goto('https://google.com')
     }, timeout)
-    it('Check if html is added, --success case', async () => {
+    it('Should check if html is added, --success case', async () => {
         const { response } = await renderizeHtml({ html: validHtml, page })
 
         expect(response).toMatch(validHtml)
