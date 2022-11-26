@@ -1,3 +1,4 @@
+import { Page, Browser } from 'puppeteer'
 import { launchPage, startPage, renderHtmlExternalURL } from './'
 
 let page
@@ -6,11 +7,11 @@ const timeout = 30000
 jest.useFakeTimers()
 
 describe('Lauch pupeeter tests ', () => {
-    it('', () => {})
-})
-
-describe('Start page tests ', () => {
-    it('', () => {})
+    it('Should launch page, --success case', async () => {
+        const { page, browser } = await launchPage()
+        expect(page).toBeInstanceOf(Page)
+        expect(browser).toBeInstanceOf(Browser)
+    })
 })
 
 describe('RenderHtmlExternalURL tests ', () => {
