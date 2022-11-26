@@ -4,7 +4,7 @@ import { HTMLToRenderProps, StartPageProps } from '../../types'
 
 const renderHtmlExternalURL = async ({ page, parameter }: HTMLToRenderProps<Page>) => {
     await page.goto(parameter, {
-        timeout: 5000,
+        timeout: 30000,
         waitUntil: 'networkidle2'
     })
 

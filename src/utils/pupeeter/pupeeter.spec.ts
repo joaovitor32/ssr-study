@@ -1,7 +1,9 @@
-const timeout = 5000
-let page
+import { launchPage, startPage, renderHtmlExternalURL } from './'
 
-import { launchPage, startPage } from './'
+let page
+const timeout = 30000
+
+jest.useFakeTimers()
 
 describe('Lauch pupeeter tests ', () => {
     it('', () => {})
@@ -12,5 +14,15 @@ describe('Start page tests ', () => {
 })
 
 describe('RenderHtmlExternalURL tests ', () => {
-    it('Should render html, --success case', () => {})
+    it(
+        'Should render html, --success case',
+        async () => {
+            jest.setTimeout(timeout)
+
+            page = await globalThis.__BROWSER_GLOBAL__.newPage()
+            const html = await renderHtmlExternalURL({ page, parameter: 'https://g1.globo.com/' })
+            expect(html).toContain('body')
+        },
+        timeout
+    )
 })
