@@ -21,6 +21,7 @@ const ssr = async ({ htmlToRender, parameter }: SSRFileProps<Page>): Promise<SSR
 
         return { status: 200, html: response }
     } catch (err) {
+        console.log(err)
         throw new Error('An error occurred on browser launch', 500)
     }
 }

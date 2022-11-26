@@ -5,8 +5,6 @@ import ssr, { renderHtmlFromFile, renderHtmlExternalURL } from './ssr'
 const port = 8000
 const app = express()
 
-// Will I do tests?
-
 app.listen(port, () => console.log(`I listen on http://localhost:${port}`))
 
 app.use((_, res: Response, next) => {
@@ -15,7 +13,7 @@ app.use((_, res: Response, next) => {
 })
 
 app.get('/ssr', async (_, res: Response) => {
-    const filePath = '../file/index.ejs'
+    const filePath = '../../file/index.ejs'
 
     const { html, status } = await ssr({ htmlToRender: renderHtmlFromFile, parameter: filePath })
 
